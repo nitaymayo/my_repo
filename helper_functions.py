@@ -276,7 +276,7 @@ def evaluation_dictionary(y_true, y_pred):
   }
 
 # Functrion to plot time series data
-def plot_time_series(timesteps, values, format=".", start=0, end=Mome, label=None)
+def plot_time_series(timesteps, values, format=".", start=0, end=None, label=None):
   """
   Plots timesteps as the X-axis and the values as Y-axis as a regular plot
   
@@ -293,5 +293,5 @@ def plot_time_series(timesteps, values, format=".", start=0, end=Mome, label=Non
   plt.xlabel("Time")
   plt.ylabel("values")
   if label:
-    pltr.legend(fontsize=14)
+    plt.legend(fontsize=14)
   plt.grid(True)
