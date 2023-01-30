@@ -220,7 +220,6 @@ def compare_historys(original_history, new_history, initial_epochs=5):
     plt.show()
   
 # Create function to unzip a zipfile into current working directory 
-# (since we're going to be downloading and unzipping a few files)
 import zipfile
 
 def unzip_data(filename):
@@ -254,28 +253,7 @@ def walk_through_dir(dir_path):
     
 # Function to evaluate: accuracy, precision, recall, f1-score
 from sklearn.metrics import accuracy_score, precision_recall_fscore_support
-
-def calculate_results(y_true, y_pred):
-  """
-  Calculates model accuracy, precision, recall and f1 score of a binary classification model.
-  Args:
-      y_true: true labels in the form of a 1D array
-      y_pred: predicted labels in the form of a 1D array
-  Returns a dictionary of accuracy, precision, recall, f1-score.
-  """
-  # Calculate model accuracy
-  model_accuracy = accuracy_score(y_true, y_pred) * 100
-  # Calculate model precision, recall and f1 score using "weighted average
-  model_precision, model_recall, model_f1, _ = precision_recall_fscore_support(y_true, y_pred, average="weighted")
-  model_results = {"accuracy": model_accuracy,
-                  "precision": model_precision,
-                  "recall": model_recall,
-                  "f1": model_f1}
-  return model_results
-
-
-from sklearn.metrics import accuracy_score, precision_score, f1_score, recall_score, precision_recall_fscore_support
-def evaluation_dictonary(y_true, y_pred):
+def evaluation_dictionary(y_true, y_pred):
   """
     Returns a dictionery that gives information on the model's preformance
     
@@ -296,3 +274,24 @@ def evaluation_dictonary(y_true, y_pred):
       'recall': recall,
       'f1_score': f1
   }
+
+# Functrion to plot time series data
+def plot_time_series(timesteps, values, format=".", start=0, end=Mome, label=None)
+  """
+  Plots timesteps as the X-axis and the values as Y-axis as a regular plot
+  
+  Args:
+  timesteps : array of timesteps values
+  values : array of values (Y-axis)
+  format : the format of the graph
+  start : index of timesteps array to start the plot from
+  end : index of timesteps to end the plot at
+  label : the plot label
+  """
+  
+  plt.plot(timesteps[start:end], values[start:end], format=format, label=label)
+  plt.xlabel("Time")
+  plt.ylabel("values")
+  if label:
+    pltr.legend(fontsize=14)
+  plt.grid(True)
