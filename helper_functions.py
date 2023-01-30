@@ -289,7 +289,7 @@ def plot_time_series(timesteps, values, format=".", start=0, end=Mome, label=Non
   label : the plot label
   """
   
-  plt.plot(timesteps[start:end], values[start:end], format=format, label=label)
+  plt.plot(timesteps[start:end], values[start:end], format, label=label)
   plt.xlabel("Time")
   plt.ylabel("values")
   if label:
